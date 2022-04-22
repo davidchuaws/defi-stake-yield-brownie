@@ -114,7 +114,7 @@ def deploy_mocks(decimals=DECIMALS, initial_value=INITIAL_PRICE_FEED_VALUE):
     print("Deploying Mock DAI...")
     dai_token = MockDAI.deploy({"from": account})
     print(f"Deployed to {dai_token.address}")
-    print("Deploying Mock WETH")
+    print("Deploying Mock WETH...")
     weth_token = MockWETH.deploy({"from": account})
     print(f"Deployed to {weth_token.address}")
     
