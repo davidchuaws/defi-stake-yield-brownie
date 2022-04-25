@@ -1,4 +1,5 @@
-import { makeStyles } from "@material-ui/core"
+import React from "react"
+import { Typography, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -16,19 +17,18 @@ const useStyles = makeStyles(theme => ({
 }))
 
 interface BalanceMsgProps {
-    label: string
-    amount: number
+    label: string;
+    amount: number;
     tokenImgSrc: string
 }
 
 export const BalanceMsg = ({ label, amount, tokenImgSrc }: BalanceMsgProps) => {
+
     const classes = useStyles()
 
-    return (
-        <div className={classes.container}>
-            <div>{label}</div>
-            <div className={classes.amount}>{amount}</div>
-            <img className={classes.tokenImg} src={tokenImgSrc} alt="token logo" />
-        </div>
-    )
+    return <div className={classes.container}>
+        <Typography component="span">{label}:</Typography>
+        <Typography className={classes.amount} component="span">{amount}</Typography>
+        <img className={classes.tokenImg} src={tokenImgSrc} alt="token logo" />
+    </div>
 }

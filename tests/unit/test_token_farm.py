@@ -121,3 +121,12 @@ def test_add_allowed_tokens():
     assert token_farm.allowedTokens(0) == dapp_token.address
     with pytest.raises(Exception):
         token_farm.addAllowedTokens(dapp_token.address, {"from": non_owner})
+
+def test_token_is_allowed():
+    if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
+        pytest.skip("Only for local testing!")
+
+    token_farm, dapp_token = deploy_token_farm_and_dapp_token()
+
+    # Assert
+    assert token_farm.tokenIsAllowed(dapp_token.address) == True
